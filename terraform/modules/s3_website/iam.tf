@@ -1,12 +1,18 @@
 resource "aws_iam_user" "website" {
+  count = "${var.create_iam_user}"
+
   name = "${var.bucket}"
 }
 
 resource "aws_iam_access_key" "website" {
+  count = "${var.create_iam_user}"
+
   user = "${aws_iam_user.website.name}"
 }
 
 resource "aws_iam_user_policy" "website" {
+  count = "${var.create_iam_user}"
+
   name = "${var.bucket}"
   user = "${aws_iam_user.website.name}"
 
