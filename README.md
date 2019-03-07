@@ -10,15 +10,15 @@ This repository demostrates deploying a static website on [AWS S3](https://docs.
 - [terraform](https://www.terraform.io)
 
 ### How to use
-- Create AWS user and export credentials on your computer.
+- Create AWS user and grant least privilege IAM policy [policy.json] and export credentials on your computer.
 - Fork this repository, and edit contents of [terraform/shared/variables.tf].
 - Commit your changes.
 
 Within CircleCi project, create new [context](https://circleci.com/docs/2.0/contexts/) and populate environment variables used by [terraform aws provider](https://www.terraform.io/docs/providers/aws/).
-If neccesery adjust context name found at (config.yml)[.circleci/config.yml].
+If neccesery adjust CirleCi context-name found at [.circleci/config.yml].
 
 ### Deploy
-Follow workflow and approve terraform plan.
+Follow CircleCI workflow and approve terraform plan on master branch.
 
 ### Cleanup
 ```aws s3 rb s3://yourbucket --force```

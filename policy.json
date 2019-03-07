@@ -1,0 +1,28 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutAccountPublicAccessBlock",
+        "s3:GetAccountPublicAccessBlock",
+        "s3:ListAllMyBuckets",
+        "s3:HeadBucket"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::*"
+    },
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::*/*"
+    }
+  ]
+}
