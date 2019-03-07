@@ -46,7 +46,7 @@ terraform_init: &terraform_init
     name: terraform init
     command: |
       source $BASH_ENV
-      cd environments/$TERRAFORM_ENVIRONMENT
+      cd terraform/environments/$TERRAFORM_ENVIRONMENT
       terraform init
 
 apply_job: &apply_job
@@ -61,7 +61,7 @@ apply_job: &apply_job
         name: terraform apply
         command: |
           source $BASH_ENV
-          cd environments/$TERRAFORM_ENVIRONMENT
+          cd terraform/environments/$TERRAFORM_ENVIRONMENT
           terraform apply --auto-approve ../../terraform.plan
 
 jobs:
@@ -75,7 +75,7 @@ jobs:
           name: terraform validate
           command: |
             source $BASH_ENV
-            cd environments/$TERRAFORM_ENVIRONMENT
+            cd terraform/environments/$TERRAFORM_ENVIRONMENT
 
             if [ $(terraform validate -check-variables=false) -gt 0 ]; then
               echo "Terraform validation failed:"
@@ -99,7 +99,7 @@ jobs:
           name: terraform plan
           command: |
             source $BASH_ENV
-            cd environments/$TERRAFORM_ENVIRONMENT
+            cd terraform/environments/$TERRAFORM_ENVIRONMENT
             terraform plan -out=../../terraform.plan
       - persist_to_workspace:
           root: *working_directory
