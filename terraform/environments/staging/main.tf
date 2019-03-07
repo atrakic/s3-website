@@ -9,6 +9,7 @@ module "staging_s3" {
   environment = "${var.environment}"
   aws_region  = "${var.aws_region}"
   create_defaults  = "${var.create_defaults}"
+  create_iam_user  = "${var.create_iam_user}"
 }
 
 output "staging_endpoint" {
