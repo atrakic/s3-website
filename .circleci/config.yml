@@ -81,9 +81,7 @@ jobs:
             if [ $(terraform validate -check-variables=false) -gt 0 ]; then
               echo "Terraform validation failed:"
               echo
-
               git checkout -- .
-
               echo
               echo "Please run terraform validate -check-variables=false"
               exit 1
@@ -105,7 +103,7 @@ jobs:
       - persist_to_workspace:
           root: *working_directory
           paths:
-            - terraform.plan
+            - terraform/terraform.plan
 
   apply:
     <<: *apply_job
