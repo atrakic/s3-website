@@ -49,3 +49,4 @@ tags
 [._]*.un~
 
 # End of https://www.gitignore.io/api/terraform,vim
+terraform/terraform.plan
