@@ -1,3 +1,3 @@
-environment = "staging"
+environment = "production"
 
-#create_defaults = true
+create_defaults = true
